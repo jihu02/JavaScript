@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+  <meta charset="UTF-8">
+  <title>ex3-6-5 | DOM</title>
+  <style>
+   #box{
+     width: 100px;
+     height: 100px;
+     border: 3px solid black;
+   }
+   .red{
+     background: red;
+   }
+   .blue{
+     background: blue;
+   }
+  </style>
+ </head>
+ 
+ <body>
+ 
+  <div id="box"></div>
+
+  <button id="red" onclick="setRed();">red</button>
+  <button id="blue" onclick="setBlue();">blue</button>
+
+  <script>
+    var box = document.getElementById("box");
+
+    function setRed(){
+        box.setAttribute("class", "red");
+    }
+
+    function setBlue(){
+        box.setAttribute("class", "blue");
+    }      
+  </script>
+ </body>
+</html>

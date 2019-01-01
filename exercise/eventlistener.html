@@ -1,0 +1,30 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  
+  <title>JS Bin</title>
+  <style>
+    .red{ background: red;}
+  </style>
+</head>
+
+<body>
+
+  <h1 id="heading">마우스를 올려 주세요</h1>    
+  
+  <script>
+    var heading = document.getElementById('heading');
+    
+    // 이벤트 리스너
+    heading.addEventListener('mouseover', function(){
+      this.setAttribute('class', 'red');
+    });
+     heading.addEventListener('mouseout', function(){
+      this.removeAttribute('class');
+    });
+    
+  </script>
+  
+</body>
+</html>
