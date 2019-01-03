@@ -1,0 +1,21 @@
+// 첫번째와 마지막 목록의 내용이 서로 교체되도록
+
+<h1 id="title">
+  <ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+</h1>
+
+<script>
+	var ul = document.getElementById("list");
+	var li = ul.getElementsByTagName('li');
+	var first_txt = li[0].innerHTML;
+	var last_txt = li[3].innerHTML;
+
+	li[0].innerHTML = last_txt;
+	li[3].innerHTML = first_txt;
+
+</script>
