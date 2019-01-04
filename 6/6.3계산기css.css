@@ -1,0 +1,29 @@
+/*아이폰 계산기 디자인*/
+caption{font-size: 32px; }
+table{ width: 320px; }
+table, th{background: #333; } /*전체배경색*/
+th{ /*결과 값 창 padding 조절*/
+  padding-right: 10px;
+  height:80px;
+}
+td{ /*각 버튼들마다 center로*/
+  height: 75px;
+  text-align: center;
+}
+th > input{ /*결과값 창 크기 조절*/
+  width: 100%;
+  border:none;
+  background: #333; color:white;
+  text-align: right; font-size:48px;
+}
+td > input[type="button"]{ /*버튼들 크기 조절*/
+  width: 100%; height: inherit;
+  color: #333; font-size:36px;
+  border: none;
+}
+td > input[type="button"]:hover{ /*버튼에 마우스 갖다대면 진회색으로*/
+  background: #999;
+}
+td:last-child > input{ /*가장 오른쪽에 있는 연산기호들 주황색으로*/
+  background: orange; color:white;
+}
