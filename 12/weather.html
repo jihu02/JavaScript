@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>weathermap API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js">
+    </script>
+  </head>
+  <body>
+    <h1>OpenweatherMap</h1>
+
+    <script>
+
+      //API 요청 URL 변수
+      var url = 'http://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=0739272a776d6f162915b05489719a74';
+
+      $.getJSON(url, function(data){
+
+      //날씨 data 객체
+      var sys = data.sys;
+      var city = data.name;
+      var weather = data.weather;
+      var main = data.main;
+
+      var wmain = weather[0].main;
+      var w_id = weather[0].id;
+      var icon = weather[0].icon;
+      var country = sys.country;
+      var temp = main.temp;
+      var temp_min = main.temp_min;
+      var temp_max = main.temp_max;
+
+      //날씨 정보 표시
+      $('body').append( wmain + ', ' + icon + ' ' + '현재온도: ' + parseInt(temp-273.15) + ' ' + '최저 온도: ' + parseInt(temp_min-273.15) + ' '
+                        + '최고 온도: ' + parseInt(temp_max-273.15) + ' ' + country + ' ' + city + ' ' + w_id + ' ' + '<br>');
+
+      //날씨 아이콘 표시
+      var icon_url = 'http://openweathermap.org/img/w/' + icon;
+      $('body').append("<img src ='" + icon_url + ".png' />");
+
+    });
+    </script>
+  </body>
+</html>
