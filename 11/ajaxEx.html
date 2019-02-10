@@ -1,0 +1,30 @@
+<!--load xml-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>AJAX</title>
+  </head>
+  <body>
+    <script>
+      $(function(){
+
+        //json 파일을 data로 가져옴
+        $.getJSON('book.json', function(data){
+
+          //data 객체 지정
+          var books = data.book;
+
+          //데이터 순회
+          $(books).each(function(i, obj){
+            var title = $('title', this).text();
+            var author = $('author', this).text();
+            var price = $('price', this).text();
+            var txt = "<li>" + title + ", " + author + ", " + price + "</li><hr>";
+            $('body').append(txt);
+          }); // 순회 끝
+        }); // AJAX 호출 끝
+      });
+    </script>
+  </body>
+</html>
