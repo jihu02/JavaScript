@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style media="screen">
+      .circle{
+        position: absolute;
+        left: 100px; top: 100px;
+        width: 100px; height: 100px;
+        background: #99c; color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circle" onclick="anim()">animate</div>
+    <script>
+      function anim(){
+        $('.circle').animate({
+          //애니메이션 시킬 css 속성을 객체로 정의
+          width: '300px',
+          height: '300px',
+          lineHeight: '300px',
+          fontSize: '3em'
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>
