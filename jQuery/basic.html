@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery</title>
+  </head>
+  <body>
+    <ul>
+      <li>first</li>
+      <li>second</li>
+      <li>third</li>
+      <li class="fourth">fourth</li>
+      <li><em>fifth</em></li>
+      <li>sixth</li>
+    </ul>
+
+    <script>
+      $(document).ready(function(){
+        //두번째 li 요소를 선택
+        $('li').eq(1).css('font-size', '2em');
+
+        //형제 li 중 fourth 요소를 선택
+        $('li').filter('.fourth').css('font-style', 'italic');
+
+        //첫번째 li 요소를 선택
+        $('li').first().css('background-color', 'orange');
+
+        //마지막 li 요소를 선택
+        $('li').last().css('border', '3px solid');
+
+        //em 요소를 포함한 li 요소를 선택
+        $('li').has('em').css('border', '3px dotted');
+      });
+    </script>
+  </body>
+</html>
