@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h3>그래프를 클릭</h3>
+    <progress value=0 min=0 max=100>0%</progress>
+    <span id="info"></span>
+
+    <button id="btn" style="padding: 10px;">click</button>
+
+    <script>
+      $(function(){
+        var val = 0;
+        //클릭 시 그래프가 증가
+        $('progress').on('click',function(){
+          $(this).val(val);
+          $('#info').html(val);
+          if(val < 100){ val += 10;}
+        });
+      });
+
+
+      $(function(){
+        //두 이벤트를 동시에 연결
+        $('#btn').on('mouseenter mouseleave', function(e){
+          //이벤트 타입을 검사
+          if(e.type == 'mouseenter'){
+            $(this).css('border-radius', '10px');
+          }
+          if(e.type == 'mouseleave'){
+            $(this).css('border-radius', '0px');
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>
