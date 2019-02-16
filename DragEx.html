@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>드래그</title>
+    <style>
+      #shopping_cart{
+        width: 450px;
+        height: 100px;
+        padding: 10px;
+        border: 1px dotted red;
+      }
+    </style>
+    <script>
+       // 드롭drop= 마우스 버튼 놓았을 때
+       // 드롭 허용하기 위해서는 정해진 타겟에 다른 요소가 드롭될 수 없게 해야함 = 디폴트 처리 방지
+      function allowDrop(e){ // 22222222222222222
+        e.preventDefault();
+      }
+      function handleDragStart(e){ // 드래그 시작할 때 발생 11111111111111111111
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData("Text", e.target.id); // 드래그에 id를 싣는다. -> 어떤 형식의 데이터가 이동되는지 설정
+      }
+      function handleDrop(e){// 데이터가 드롭되면 발생 33333333333333333333
+        e.preventDefault(); // 디폴트 방지 한번 더
+        var src = e.dataTransfer.getData("Text"); // 드래그 된 데이터를 얻음
+        e.target.appendChild(document.getElementById(src)); // 드래그에서 데이터를 꺼내서 자식노드로 추가한다.
+      }
+    </script>
+  </head>
+  <body>
+    <p>원하는 물건을 끌어서 옮기세요</p>
+    <div id="shopping_cart" ondrop="handleDrop(event)" ondragover="allowDrop(event)"></div>
+
+    <br />
+        <!--draggable 설정을 true로 해야 드래그 가능-->
+    <img id="img1" src="pome.png" draggable="true" ondragstart="handleDragStart(event)" width="150" height="100">
+    <img id="img2" src="poodle.png" draggable="true" ondragstart="handleDragStart(event)" width="150" height="100">
+
+  </body>
+</html>
